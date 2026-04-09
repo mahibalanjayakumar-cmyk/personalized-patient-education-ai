@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareSync - Personalized Patient Education AI</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="activity"></i>
+                <span>CareSync AI</span>
+            </div>
+            <nav>
+                <a href="#" class="active" id="nav-generator"><i data-lucide="sparkles"></i> Generator</a>
+                <a href="#" id="nav-history"><i data-lucide="history"></i> History</a>
+                <a href="#" id="nav-settings"><i data-lucide="settings"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Dr. Smith" class="avatar">
+                    <div class="user-info">
+                        <strong>Dr. Jane Smith</strong>
+                        <span>Cardiology Dept.</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- View: Generator Form -->
+            <section id="view-generator" class="view active-view">
+                <div class="header-banner glass-panel">
+                    <h1>Generate Patient Materials</h1>
+                    <p>Create highly personalized, culturally adapted education plans tailored to your patient's exact needs.</p>
+                </div>
+
+                <div class="card form-card">
+                    <form id="intake-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="diagnosis"><i data-lucide="stethoscope"></i> Diagnosis</label>
+                                <select id="diagnosis" required>
+                                    <option value="" disabled selected>Select Diagnosis</option>
+                                    <option value="Type 2 Diabetes">Type 2 Diabetes</option>
+                                    <option value="Hypertension">Hypertension</option>
+                                    <option value="Asthma">Asthma</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="literacy"><i data-lucide="book-open"></i> Health Literacy Level</label>
+                                <select id="literacy" required>
+                                    <option value="" disabled selected>Select Level</option>
+                                    <option value="Basic">Basic (Simple terms, large visuals)</option>
+                                    <option value="Intermediate">Intermediate (Standard terminology)</option>
+                                    <option value="Advanced">Advanced (Detailed physiological info)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="culture"><i data-lucide="globe"></i> Cultural Background Focus</label>
+                                <select id="culture" required>
+                                    <option value="General" selected>General / No specific dietary limits</option>
+                                    <option value="South Asian">South Asian</option>
+                                    <option value="Hispanic/Latino">Hispanic / Latino</option>
+                                    <option value="Mediterranean">Mediterranean</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="learning"><i data-lucide="brain"></i> Learning Preference</label>
+                                <select id="learning" required>
+                                    <option value="Visual">Visual (Diagrams, icons)</option>
+                                    <option value="Text">Text (Detailed reading)</option>
+                                    <option value="Actionable">Actionable (Steps, checklists)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="generate-btn">
+                            <i data-lucide="wand-2"></i> Generate Material
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- View: Loading State -->
+            <section id="view-loading" class="view hidden-view">
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <h2>AI is drafting personalized materials...</h2>
+                    <p>Analyzing diagnosis, cultural context, and literacy levels.</p>
+                </div>
+            </section>
+
+            <!-- View: Result Output -->
+            <section id="view-result" class="view hidden-view">
+                <div class="result-actions">
+                    <button class="btn-secondary" id="back-btn"><i data-lucide="arrow-left"></i> Back to Generator</button>
+                    <div class="action-buttons">
+                        <button class="btn-secondary"><i data-lucide="printer"></i> Print</button>
+                        <button class="btn-primary"><i data-lucide="send"></i> Send to Patient</button>
+                    </div>
+                </div>
+
+                <div id="material-content" class="material-container">
+                    <!-- Dynamic Content Inserted Here -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/aiMockService.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
